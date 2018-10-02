@@ -1,0 +1,53 @@
+<?xml version="1.0"?>
+<SqlWorkbenchSqlProject xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Name="1imscheck">
+  <Items>
+    <LogicalFolder Name="Connections" Type="2" Sorted="true">
+      <Items>
+        <ConnectionNode Name="MIRANDA-PC:MIRANDA-PC\Miranda">
+          <Created>2018-10-01T20:34:35.5923168-05:00</Created>
+          <Type>SQL</Type>
+          <Server>MIRANDA-PC</Server>
+          <UserName />
+          <Authentication>Windows Authentication</Authentication>
+          <InitialDB>ArtMuseum</InitialDB>
+          <LoginTimeout>30</LoginTimeout>
+          <ExecutionTimeout>0</ExecutionTimeout>
+          <ConnectionProtocol>NotSpecified</ConnectionProtocol>
+          <ApplicationName>Microsoft SQL Server Management Studio - Query</ApplicationName>
+        </ConnectionNode>
+      </Items>
+    </LogicalFolder>
+    <LogicalFolder Name="Queries" Type="0" Sorted="true">
+      <Items>
+        <FileNode Name="ArtMuseum.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:MIRANDA-PC:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>MIRANDA-PC</AssociatedConnSrvName>
+          <AssociatedConnUserName />
+          <FullPath>ArtMuseum.sql</FullPath>
+        </FileNode>
+      </Items>
+    </LogicalFolder>
+    <LogicalFolder Name="Miscellaneous" Type="3" Sorted="true">
+      <Items>
+        <FileNode Name="1iFirstSS.PNG">
+          <AssociatedConnectionMoniker />
+          <AssociatedConnSrvName />
+          <AssociatedConnUserName />
+          <FullPath>1iFirstSS.PNG</FullPath>
+        </FileNode>
+        <FileNode Name="1iSecondSS.PNG">
+          <AssociatedConnectionMoniker />
+          <AssociatedConnSrvName />
+          <AssociatedConnUserName />
+          <FullPath>1iSecondSS.PNG</FullPath>
+        </FileNode>
+        <FileNode Name="1iThirdSS.PNG">
+          <AssociatedConnectionMoniker />
+          <AssociatedConnSrvName />
+          <AssociatedConnUserName />
+          <FullPath>1iThirdSS.PNG</FullPath>
+        </FileNode>
+      </Items>
+    </LogicalFolder>
+  </Items>
+</SqlWorkbenchSqlProject>
