@@ -5,13 +5,16 @@ VisualStudioVersion = 14.0.23107.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{4F2E2C19-372F-40D8-9FA7-9D2138C6997A}") = "1imscheck", "1imscheck\1imscheck.ssmssqlproj", "{4E979570-2E9C-4C57-8A01-BA9F6D854435}"
 EndProject
+Project("{4F2E2C19-372F-40D8-9FA7-9D2138C6997A}") = "1714mscheck2A", "1714mscheck2A\1714mscheck2A.ssmssqlproj", "{6C3984D7-F155-4399-86AA-9B14380357C5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Default|Default = Default|Default
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{F72CD1FC-D635-470F-B1B5-9C964CC8D847}.Default|Default.ActiveCfg = Default
 		{4E979570-2E9C-4C57-8A01-BA9F6D854435}.Default|Default.ActiveCfg = Default
+		{D3CDA1A1-B443-4B22-ABD1-5D86A1DD7215}.Default|Default.ActiveCfg = Default
+		{6C3984D7-F155-4399-86AA-9B14380357C5}.Default|Default.ActiveCfg = Default
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
