@@ -11,6 +11,8 @@ Project("{4F2E2C19-372F-40D8-9FA7-9D2138C6997A}") = "mscheck2b", "mscheck2b\msch
 EndProject
 Project("{4F2E2C19-372F-40D8-9FA7-9D2138C6997A}") = "1714mscheck2C", "1714mscheck2C\1714mscheck2C.ssmssqlproj", "{0BD904FE-258B-4A94-9B1B-6A2A775E9654}"
 EndProject
+Project("{4F2E2C19-372F-40D8-9FA7-9D2138C6997A}") = "1714mscheck2d", "1714mscheck2d\1714mscheck2d.ssmssqlproj", "{43FD79F7-FF18-4921-86C1-A2B29FC9EB84}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Default|Default = Default|Default
@@ -19,8 +21,9 @@ Global
 		{4E979570-2E9C-4C57-8A01-BA9F6D854435}.Default|Default.ActiveCfg = Default
 		{6C3984D7-F155-4399-86AA-9B14380357C5}.Default|Default.ActiveCfg = Default
 		{C42B8A05-46B6-46C1-B6AA-2AC71F965C74}.Default|Default.ActiveCfg = Default
-		{29182732-2165-4A00-B10B-349AA2B7500E}.Default|Default.ActiveCfg = Default
 		{0BD904FE-258B-4A94-9B1B-6A2A775E9654}.Default|Default.ActiveCfg = Default
+		{43FD79F7-FF18-4921-86C1-A2B29FC9EB84}.Default|Default.ActiveCfg = Default
+		{D15BCA69-9818-497B-969F-D1F2F7FE6AAB}.Default|Default.ActiveCfg = Default
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

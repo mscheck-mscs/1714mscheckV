@@ -1,10 +1,10 @@
 <?xml version="1.0"?>
-<SqlWorkbenchSqlProject xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Name="1714mscheck2C">
+<SqlWorkbenchSqlProject xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Name="1714mscheck2d">
   <Items>
     <LogicalFolder Name="Connections" Type="2" Sorted="true">
       <Items>
         <ConnectionNode Name="MIRANDA-PC:MIRANDA-PC\Miranda">
-          <Created>2018-10-18T19:07:46.8614972-05:00</Created>
+          <Created>2018-10-24T19:16:16.7766552-05:00</Created>
           <Type>SQL</Type>
           <Server>MIRANDA-PC</Server>
           <UserName />
@@ -19,11 +19,11 @@
     </LogicalFolder>
     <LogicalFolder Name="Queries" Type="0" Sorted="true">
       <Items>
-        <FileNode Name="SQLQuery1.sql">
+        <FileNode Name="mscheck2d.sql">
           <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:MIRANDA-PC:True</AssociatedConnectionMoniker>
           <AssociatedConnSrvName>MIRANDA-PC</AssociatedConnSrvName>
           <AssociatedConnUserName />
-          <FullPath>SQLQuery1.sql</FullPath>
+          <FullPath>mscheck2d.sql</FullPath>
         </FileNode>
       </Items>
     </LogicalFolder>
@@ -65,17 +65,11 @@
           <AssociatedConnUserName />
           <FullPath>6.PNG</FullPath>
         </FileNode>
-        <FileNode Name="7..PNG">
+        <FileNode Name="7.PNG">
           <AssociatedConnectionMoniker />
           <AssociatedConnSrvName />
           <AssociatedConnUserName />
-          <FullPath>7..PNG</FullPath>
-        </FileNode>
-        <FileNode Name="8.PNG">
-          <AssociatedConnectionMoniker />
-          <AssociatedConnSrvName />
-          <AssociatedConnUserName />
-          <FullPath>8.PNG</FullPath>
+          <FullPath>7.PNG</FullPath>
         </FileNode>
       </Items>
     </LogicalFolder>
