@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="701cab2c70444f26b46d58bd3b69d363" Name="Diagram1" >
+        <EntityTypeShape EntityType="TripModel.Person" Width="1.5" PointX="0.75" PointY="3.125" />
+        <EntityTypeShape EntityType="TripModel.Location" Width="1.5" PointX="0.5" PointY="0.5" />
+        <EntityTypeShape EntityType="TripModel.Trip" Width="1.5" PointX="3.25" PointY="1.75" />
+        <EntityTypeShape EntityType="TripModel.Return" Width="1.5" PointX="5.375" PointY="1.875" />
+        <AssociationConnector Association="TripModel.LocationTrip" />
+        <AssociationConnector Association="TripModel.TripReturn" />
+        <AssociationConnector Association="TripModel.PersonTrip" />
+        <AssociationConnector Association="TripModel.PersonTrip1" />
+        <AssociationConnector Association="TripModel.PersonTrip2" />
+        <AssociationConnector Association="TripModel.PersonTrip3" />
+        <EntityTypeShape EntityType="TripModel.Group" Width="1.5" PointX="5.375" PointY="4.25" />
+        <AssociationConnector Association="TripModel.GroupTrip" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -1,0 +1,425 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="TripModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2012" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="TripModelStoreContainer">
+    <EntitySet Name="People" EntityType="TripModel.Store.People" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Locations" EntityType="TripModel.Store.Locations" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Trips" EntityType="TripModel.Store.Trips" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Returns" EntityType="TripModel.Store.Returns" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Groups" EntityType="TripModel.Store.Groups" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="LocationTrip" Association="TripModel.Store.LocationTrip">
+      <End Role="Location" EntitySet="Locations" />
+      <End Role="Trip" EntitySet="Trips" />
+    </AssociationSet>
+    <AssociationSet Name="TripReturn" Association="TripModel.Store.TripReturn">
+      <End Role="Trip" EntitySet="Trips" />
+      <End Role="Return" EntitySet="Returns" />
+    </AssociationSet>
+    <AssociationSet Name="PersonTrip" Association="TripModel.Store.PersonTrip">
+      <End Role="Person" EntitySet="People" />
+      <End Role="Trip" EntitySet="Trips" />
+    </AssociationSet>
+    <AssociationSet Name="PersonTrip1" Association="TripModel.Store.PersonTrip1">
+      <End Role="Person" EntitySet="People" />
+      <End Role="Trip" EntitySet="Trips" />
+    </AssociationSet>
+    <AssociationSet Name="PersonTrip2" Association="TripModel.Store.PersonTrip2">
+      <End Role="Person" EntitySet="People" />
+      <End Role="Trip" EntitySet="Trips" />
+    </AssociationSet>
+    <AssociationSet Name="PersonTrip3" Association="TripModel.Store.PersonTrip3">
+      <End Role="Person" EntitySet="People" />
+      <End Role="Trip" EntitySet="Trips" />
+    </AssociationSet>
+    <AssociationSet Name="GroupTrip" Association="TripModel.Store.GroupTrip">
+      <End Role="Group" EntitySet="Groups" />
+      <End Role="Trip" EntitySet="Trips" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="People">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FirstName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="LastName" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Locations">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Address" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="City" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="State" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Trips">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DateOfTakeOff" Type="datetime" Nullable="false" />
+    <Property Name="TimeOfTakeOff" Type="time" Nullable="false" />
+    <Property Name="Location_Id" Type="int" Nullable="false" />
+    <Property Name="Manger_Id" Type="int" Nullable="false" />
+    <Property Name="CrewMember1_Id" Type="int" Nullable="false" />
+    <Property Name="CrewMember2_Id" Type="int" Nullable="true" />
+    <Property Name="Driver_Id" Type="int" Nullable="false" />
+    <Property Name="Group_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Returns">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Date" Type="datetime" Nullable="false" />
+    <Property Name="Trip_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Groups">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="NumberOfMembers" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <Association Name="LocationTrip">
+    <End Role="Location" Type="TripModel.Store.Locations" Multiplicity="1" />
+    <End Role="Trip" Type="TripModel.Store.Trips" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Location">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Trip">
+        <PropertyRef Name="Location_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="TripReturn">
+    <End Role="Trip" Type="TripModel.Store.Trips" Multiplicity="1" />
+    <End Role="Return" Type="TripModel.Store.Returns" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Trip">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Return">
+        <PropertyRef Name="Trip_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="PersonTrip">
+    <End Role="Person" Type="TripModel.Store.People" Multiplicity="1" />
+    <End Role="Trip" Type="TripModel.Store.Trips" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Person">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Trip">
+        <PropertyRef Name="Manger_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="PersonTrip1">
+    <End Role="Person" Type="TripModel.Store.People" Multiplicity="1" />
+    <End Role="Trip" Type="TripModel.Store.Trips" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Person">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Trip">
+        <PropertyRef Name="CrewMember1_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="PersonTrip2">
+    <End Role="Person" Type="TripModel.Store.People" Multiplicity="0..1" />
+    <End Role="Trip" Type="TripModel.Store.Trips" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Person">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Trip">
+        <PropertyRef Name="CrewMember2_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="PersonTrip3">
+    <End Role="Person" Type="TripModel.Store.People" Multiplicity="1" />
+    <End Role="Trip" Type="TripModel.Store.Trips" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Person">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Trip">
+        <PropertyRef Name="Driver_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="GroupTrip">
+    <End Role="Group" Type="TripModel.Store.Groups" Multiplicity="1" />
+    <End Role="Trip" Type="TripModel.Store.Trips" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Group">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Trip">
+        <PropertyRef Name="Group_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="TripModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
+        <EntityContainer Name="TripModelContainer" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="People" EntityType="TripModel.Person" />
+          <EntitySet Name="Locations" EntityType="TripModel.Location" />
+          <EntitySet Name="Trips" EntityType="TripModel.Trip" />
+          <EntitySet Name="Returns" EntityType="TripModel.Return" />
+          <AssociationSet Name="LocationTrip" Association="TripModel.LocationTrip">
+            <End Role="Location" EntitySet="Locations" />
+            <End Role="Trip" EntitySet="Trips" />
+          </AssociationSet>
+          <AssociationSet Name="TripReturn" Association="TripModel.TripReturn">
+            <End Role="Trip" EntitySet="Trips" />
+            <End Role="Return" EntitySet="Returns" />
+          </AssociationSet>
+          <AssociationSet Name="PersonTrip" Association="TripModel.PersonTrip">
+            <End Role="Person" EntitySet="People" />
+            <End Role="Trip" EntitySet="Trips" />
+          </AssociationSet>
+          <AssociationSet Name="PersonTrip1" Association="TripModel.PersonTrip1">
+            <End Role="Person" EntitySet="People" />
+            <End Role="Trip" EntitySet="Trips" />
+          </AssociationSet>
+          <AssociationSet Name="PersonTrip2" Association="TripModel.PersonTrip2">
+            <End Role="Person" EntitySet="People" />
+            <End Role="Trip" EntitySet="Trips" />
+          </AssociationSet>
+          <AssociationSet Name="PersonTrip3" Association="TripModel.PersonTrip3">
+            <End Role="Person" EntitySet="People" />
+            <End Role="Trip" EntitySet="Trips" />
+          </AssociationSet>
+          <EntitySet Name="Groups" EntityType="TripModel.Group" />
+          <AssociationSet Name="GroupTrip" Association="TripModel.GroupTrip">
+            <End Role="Group" EntitySet="Groups" />
+            <End Role="Trip" EntitySet="Trips" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Person">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" ConcurrencyMode="Fixed" />
+          <Property Name="FirstName" Type="String" Nullable="false" />
+          <Property Name="LastName" Type="String" Nullable="false" />
+          <NavigationProperty Name="Trips" Relationship="TripModel.PersonTrip" FromRole="Person" ToRole="Trip" />
+          <NavigationProperty Name="Trips1" Relationship="TripModel.PersonTrip1" FromRole="Person" ToRole="Trip" />
+          <NavigationProperty Name="Trips2" Relationship="TripModel.PersonTrip2" FromRole="Person" ToRole="Trip" />
+          <NavigationProperty Name="Trips3" Relationship="TripModel.PersonTrip3" FromRole="Person" ToRole="Trip" />
+        </EntityType>
+        <EntityType Name="Location">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" ConcurrencyMode="Fixed" />
+          <Property Name="Address" Type="String" Nullable="false" />
+          <Property Name="City" Type="String" Nullable="false" />
+          <Property Name="State" Type="String" Nullable="false" />
+          <NavigationProperty Name="Trips" Relationship="TripModel.LocationTrip" FromRole="Location" ToRole="Trip" />
+        </EntityType>
+        <EntityType Name="Trip">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" ConcurrencyMode="Fixed" />
+          <Property Name="DateOfTakeOff" Type="DateTime" Nullable="false" />
+          <Property Name="TimeOfTakeOff" Type="Time" Nullable="false" />
+          <NavigationProperty Name="Location" Relationship="TripModel.LocationTrip" FromRole="Trip" ToRole="Location" />
+          <NavigationProperty Name="Returns" Relationship="TripModel.TripReturn" FromRole="Trip" ToRole="Return" />
+          <NavigationProperty Name="Manger" Relationship="TripModel.PersonTrip" FromRole="Trip" ToRole="Person" />
+          <NavigationProperty Name="CrewMember1" Relationship="TripModel.PersonTrip1" FromRole="Trip" ToRole="Person" />
+          <NavigationProperty Name="CrewMember2" Relationship="TripModel.PersonTrip2" FromRole="Trip" ToRole="Person" />
+          <NavigationProperty Name="Driver" Relationship="TripModel.PersonTrip3" FromRole="Trip" ToRole="Person" />
+          <NavigationProperty Name="Group" Relationship="TripModel.GroupTrip" FromRole="Trip" ToRole="Group" />
+        </EntityType>
+        <EntityType Name="Return">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" ConcurrencyMode="Fixed" />
+          <Property Name="Date" Type="DateTime" Nullable="false" />
+          <NavigationProperty Name="Trip" Relationship="TripModel.TripReturn" FromRole="Return" ToRole="Trip" />
+        </EntityType>
+        <Association Name="LocationTrip">
+          <End Type="TripModel.Location" Role="Location" Multiplicity="1" />
+          <End Type="TripModel.Trip" Role="Trip" Multiplicity="*" />
+        </Association>
+        <Association Name="TripReturn">
+          <End Type="TripModel.Trip" Role="Trip" Multiplicity="1" />
+          <End Type="TripModel.Return" Role="Return" Multiplicity="*" />
+        </Association>
+        <Association Name="PersonTrip">
+          <End Type="TripModel.Person" Role="Person" Multiplicity="1" />
+          <End Type="TripModel.Trip" Role="Trip" Multiplicity="*" />
+        </Association>
+        <Association Name="PersonTrip1">
+          <End Type="TripModel.Person" Role="Person" Multiplicity="1" />
+          <End Type="TripModel.Trip" Role="Trip" Multiplicity="*" />
+        </Association>
+        <Association Name="PersonTrip2">
+          <End Type="TripModel.Person" Role="Person" Multiplicity="0..1" />
+          <End Type="TripModel.Trip" Role="Trip" Multiplicity="*" />
+        </Association>
+        <Association Name="PersonTrip3">
+          <End Type="TripModel.Person" Role="Person" Multiplicity="1" />
+          <End Type="TripModel.Trip" Role="Trip" Multiplicity="*" />
+        </Association>
+        <EntityType Name="Group">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" ConcurrencyMode="Fixed" />
+          <Property Name="Name" Type="String" Nullable="false" />
+          <Property Name="NumberOfMembers" Type="String" Nullable="false" />
+          <NavigationProperty Name="Trips" Relationship="TripModel.GroupTrip" FromRole="Group" ToRole="Trip" />
+        </EntityType>
+        <Association Name="GroupTrip">
+          <End Type="TripModel.Group" Role="Group" Multiplicity="1" />
+          <End Type="TripModel.Trip" Role="Trip" Multiplicity="*" />
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+    <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="TripModelStoreContainer" CdmEntityContainer="TripModelContainer">
+    <EntitySetMapping Name="People">
+      <EntityTypeMapping TypeName="IsTypeOf(TripModel.Person)">
+        <MappingFragment StoreEntitySet="People">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Locations">
+      <EntityTypeMapping TypeName="IsTypeOf(TripModel.Location)">
+        <MappingFragment StoreEntitySet="Locations">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="State" ColumnName="State" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Trips">
+      <EntityTypeMapping TypeName="IsTypeOf(TripModel.Trip)">
+        <MappingFragment StoreEntitySet="Trips">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="DateOfTakeOff" ColumnName="DateOfTakeOff" />
+          <ScalarProperty Name="TimeOfTakeOff" ColumnName="TimeOfTakeOff" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Returns">
+      <EntityTypeMapping TypeName="IsTypeOf(TripModel.Return)">
+        <MappingFragment StoreEntitySet="Returns">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Groups">
+      <EntityTypeMapping TypeName="IsTypeOf(TripModel.Group)">
+        <MappingFragment StoreEntitySet="Groups">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="NumberOfMembers" ColumnName="NumberOfMembers" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="LocationTrip" TypeName="TripModel.LocationTrip" StoreEntitySet="Trips">
+      <EndProperty Name="Location">
+        <ScalarProperty Name="Id" ColumnName="Location_Id" />
+      </EndProperty>
+      <EndProperty Name="Trip">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="TripReturn" TypeName="TripModel.TripReturn" StoreEntitySet="Returns">
+      <EndProperty Name="Trip">
+        <ScalarProperty Name="Id" ColumnName="Trip_Id" />
+      </EndProperty>
+      <EndProperty Name="Return">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="PersonTrip" TypeName="TripModel.PersonTrip" StoreEntitySet="Trips">
+      <EndProperty Name="Person">
+        <ScalarProperty Name="Id" ColumnName="Manger_Id" />
+      </EndProperty>
+      <EndProperty Name="Trip">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="PersonTrip1" TypeName="TripModel.PersonTrip1" StoreEntitySet="Trips">
+      <EndProperty Name="Person">
+        <ScalarProperty Name="Id" ColumnName="CrewMember1_Id" />
+      </EndProperty>
+      <EndProperty Name="Trip">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="PersonTrip2" TypeName="TripModel.PersonTrip2" StoreEntitySet="Trips">
+      <EndProperty Name="Person">
+        <ScalarProperty Name="Id" ColumnName="CrewMember2_Id" />
+      </EndProperty>
+      <EndProperty Name="Trip">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+      <Condition ColumnName="CrewMember2_Id" IsNull="false" />
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="PersonTrip3" TypeName="TripModel.PersonTrip3" StoreEntitySet="Trips">
+      <EndProperty Name="Person">
+        <ScalarProperty Name="Id" ColumnName="Driver_Id" />
+      </EndProperty>
+      <EndProperty Name="Trip">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="GroupTrip" TypeName="TripModel.GroupTrip" StoreEntitySet="Trips">
+      <EndProperty Name="Group">
+        <ScalarProperty Name="Id" ColumnName="Group_Id" />
+      </EndProperty>
+      <EndProperty Name="Trip">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping></edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <edmx:Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </edmx:Connection>
+    <edmx:Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+        <DesignerProperty Name="UseLegacyProvider" Value="False" />
+      </DesignerInfoPropertySet>
+    </edmx:Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
