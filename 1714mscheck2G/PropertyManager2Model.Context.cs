@@ -10,11 +10,14 @@
 namespace _1714mscheck2G
 {
     using System;
+    using System.Collections.Generic;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
-    
+
     public partial class PropertyManager2ModelContainer : DbContext
     {
+        public IEnumerable<object> apartment;
+
         public PropertyManager2ModelContainer()
             : base("name=PropertyManager2ModelContainer")
         {
